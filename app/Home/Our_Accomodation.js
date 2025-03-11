@@ -10,6 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 const LeagueGothic = League_Gothic({
   weight: "400",
+  subsets: ["latin"],
 });
 const InterFont = Inter({
   subsets: ["latin"],

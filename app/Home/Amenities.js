@@ -4,6 +4,7 @@ import { GoIssueClosed } from "react-icons/go";
 
 const LeagueGothic = League_Gothic({
   weight: "400",
+  subsets: ["latin"],
 });
 
 const InterFont = Inter({

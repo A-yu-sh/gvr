@@ -3,6 +3,7 @@ import React from "react";
 import { League_Gothic, Inter } from "next/font/google";
 const LeagueGothic = League_Gothic({
   weight: "400",
+  subsets: ["latin"],
 });
 
 const Card = ({ img, title, desc, link }) => {

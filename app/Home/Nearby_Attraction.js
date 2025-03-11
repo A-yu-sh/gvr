@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const LeagueGothic = League_Gothic({
   weight: "400",
+  subsets: ["latin"],
 });
 const InterFont = Inter({
   subsets: ["latin"],
