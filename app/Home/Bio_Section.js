@@ -6,6 +6,7 @@ import { League_Gothic } from "next/font/google";
 
 const LeagueGothic = League_Gothic({
   weight: "400",
+  subsets: ["latin"],
 });
 
 const Bio_Section = () => {
