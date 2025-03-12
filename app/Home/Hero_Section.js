@@ -62,7 +62,7 @@ const Hero_Section = () => {
             width={500}
             height={500}
             quality={100}
-            className="w-auto h-full object-fill "
+            className="w-auto h-full object-cover "
           />
           <div className="absolute inset-0 max-w-[100%] w-[100%] h-screen xl:w-[88%] bg-black bg-opacity-50 left-1/2 transform -translate-x-1/2"></div>
         </div>
