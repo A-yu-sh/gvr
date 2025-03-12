@@ -1,10 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import image1 from "../assets/Group 2.jpg";
-import image2 from "../assets/Group 3.jpg";
-import image3 from "../assets/Group 4.jpg";
-import image4 from "../assets/Group 5.jpg";
-import image5 from "../assets/Group 6.jpg";
 import Image from "next/image";
 import { Birthstone } from "next/font/google";
 import { motion } from "framer-motion";
@@ -17,7 +13,6 @@ const BirthStone = Birthstone({
 });
 
 const Hero_Section = () => {
-  const images = [image1, image2, image3, image4, image5];
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -51,38 +46,44 @@ const Hero_Section = () => {
     return () => clearTimeout(timeout);
   }, [text, isDeleting, wordIndex]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.body.style.overflowX = "hidden"; // Ensure no unwanted scrolling
+    }
+  }, []);
+
   return (
-    <div className="relative h-[100vh] w-full overflow-hidden">
-      {/* Image Background */}
-      <div className="relative w-full h-full">
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full mt-[-10] md:mt-0">
         <Image
           src={image1}
           alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          className="w-full h-full"
+          width={1920} // Set an appropriate width
+          height={1080} // Set an appropriate height
+          className="w-full h-full max-w-full max-h-full object-cover"
+          priority
+          style={{ objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
 
-      {/* Text Overlay */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 p-4">
+      {/* Text Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10 px-6 md:px-0">
         <h1
-          className={`${BirthStone.className} text-5xl md:text-8xl max-w-[15ch] font-semibold mb-4 drop-shadow-lg`}>
+          className={`${BirthStone.className} text-5xl md:text-8xl font-bold leading-tight`}>
           Lost In <span className="text-[#FF5A00]">{text}</span>
         </h1>
-        <p
-          className={`${BirthStone.className} text-lg hidden lg:block md:text-3xl mb-8 drop-shadow-lg`}>
+        <p className="text-lg md:text-2xl mt-3 md:mt-5 max-w-xl">
           Discover a haven of tranquility and luxury at our resort.
         </p>
-        <button className="border border-white text-white px-6 py-2 hover:px-7 hover:py-3 text-sm md:px-8 md:py-3 md:text-base rounded-full hover:bg-white/30 hover:bg-opacity-30 font-semibold transition-colors drop-shadow-md">
+        <button className="border border-white text-white px-6 py-2 hover:px-7 mt-5 hover:py-3 text-sm md:px-8 md:py-3 md:text-base rounded-full hover:bg-white/30 hover:backdrop-blur-none hover:bg-opacity-30 font-semibold transition-colors drop-shadow-md">
           Book Now
         </button>
       </div>
 
-      {/* Scroll Down Button */}
-      <div className="absolute bottom-10 w-full flex justify-center">
+      {/* Scroll Down Indicator (FIXED) */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white">
         <motion.div
           className="flex flex-col items-center text-white cursor-pointer"
           initial={{ opacity: 0, y: 10 }}
@@ -92,7 +93,9 @@ const Hero_Section = () => {
             window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
           }>
           <p className="text-sm mb-2 tracking-widest">SCROLL DOWN</p>
+          {/* Oval Background */}
           <div className="w-10 h-16 border-2 border-white rounded-full flex justify-center items-center">
+            {/* Mouse Icon */}
             <Mouse size={20} className="text-white animate-bounce" />
           </div>
         </motion.div>
