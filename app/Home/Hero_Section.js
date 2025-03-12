@@ -57,7 +57,7 @@ const Hero_Section = () => {
       <div className="relative w-auto h-screen">
         <div className="relative w-auto h-screen flex justify-center">
           <Image_Slider images={images} timer={3000} />
-          <div className="absolute inset-0 max-w-[100%] w-[100%] xl:w-[88%] bg-black bg-opacity-50 left-1/2 transform -translate-x-1/2"></div>
+          <div className="absolute inset-0 max-w-[100%] w-[100%] h-screen xl:w-[88%] bg-black bg-opacity-50 left-1/2 transform -translate-x-1/2"></div>
         </div>
       </div>
 
