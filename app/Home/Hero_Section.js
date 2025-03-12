@@ -1,105 +1,73 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import image1 from "../assets/Group 2.jpg";
+import React from "react";
+import image1 from "../assets/Group 6.jpg";
 import Image from "next/image";
-import { Birthstone } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { motion } from "framer-motion";
 import { Mouse } from "lucide-react";
 
-const synonyms = ["Nature", "Serenity", "Peace", "Tranquility", "Calmness"];
-const BirthStone = Birthstone({
-  weight: "400",
+const PoppinsFont = Poppins({
+  weight: "700", // Bold weight for stronger appearance
   subsets: ["latin"],
 });
+const synonyms = ["Nature", "Serenity", "Peace", "Tranquility", "Calmness"];
 
 const Hero_Section = () => {
-  const [text, setText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-
-  useEffect(() => {
-    const currentWord = synonyms[wordIndex];
-
-    const handleTyping = () => {
-      if (!isDeleting) {
-        if (text.length < currentWord.length) {
-          setText(currentWord.substring(0, text.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), 1000);
-        }
-      } else {
-        if (text.length > 0) {
-          setText(currentWord.substring(0, text.length - 1));
-        } else {
-          setIsDeleting(false);
-          setWordIndex((prevIndex) => (prevIndex + 1) % synonyms.length);
-        }
-      }
-    };
-
-    const timeout = setTimeout(
-      handleTyping,
-      isDeleting ? deletingSpeed : typingSpeed
-    );
-    return () => clearTimeout(timeout);
-  }, [text, isDeleting, wordIndex]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      document.body.style.overflowX = "hidden"; // Ensure no unwanted scrolling
-    }
-  }, []);
-
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full mt-[-5rem] md:mt-0">
+      <div className="absolute inset-0 w-full h-full">
         <Image
           src={image1}
           alt="Background Image"
-          width={1920} // Set an appropriate width
-          height={1080} // Set an appropriate height
+          width={1920}
+          height={1080}
           className="w-full h-full max-w-full max-h-full object-cover"
           priority
           style={{ objectFit: "cover" }}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       </div>
 
-      {/* Text Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10 px-6 md:px-0">
+      {/* Text Content with Fade Animation */}
+      <motion.div
+        className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10 px-6 md:px-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: "easeInOut" }}>
         <h1
-          className={`${BirthStone.className} text-5xl md:text-8xl font-bold leading-tight`}>
-          Lost In <span className="text-[#FF5A00]">{text}</span>
+          className={`${PoppinsFont.className} text-7xl md:text-8xl font-extrabold leading-tight`}>
+          Green Vista
         </h1>
+        <h2 className="text-3xl md:text-5xl font-bold mt-2 text-[#FF5A00]">
+          A Place of Peace & Tranquility
+        </h2>
         <p className="text-lg md:text-2xl mt-3 md:mt-5 max-w-xl">
-          Discover a haven of tranquility and luxury at our resort.
+          Discover a haven of serenity and luxury at our resort.
         </p>
-        <button className="border border-white text-white px-6 py-2 hover:px-7 mt-5 hover:py-3 text-sm md:px-8 md:py-3 md:text-base rounded-full hover:bg-white/30 hover:backdrop-blur-none hover:bg-opacity-30 font-semibold transition-colors drop-shadow-md">
+        <motion.button
+          className="border border-white text-white px-6 py-2 hover:px-7 mt-5 hover:py-3 text-sm md:px-8 md:py-3 md:text-base rounded-full hover:bg-white/30 hover:backdrop-blur-none hover:bg-opacity-30 font-semibold transition-colors drop-shadow-md"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 1 }}>
           Book Now
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
-      {/* Scroll Down Indicator (FIXED) */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white">
-        <motion.div
-          className="flex flex-col items-center text-white cursor-pointer"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: [10, 0, 10] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          onClick={() =>
-            window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-          }>
-          <p className="text-sm mb-2 tracking-widest">SCROLL DOWN</p>
-          {/* Oval Background */}
-          <div className="w-10 h-16 border-2 border-white rounded-full flex justify-center items-center">
-            {/* Mouse Icon */}
-            <Mouse size={20} className="text-white animate-bounce" />
-          </div>
-        </motion.div>
-      </div>
+      {/* Scroll Down Indicator with Fade Animation */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white cursor-pointer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        onClick={() =>
+          window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
+        }>
+        <p className="text-sm mb-2 tracking-widest">SCROLL DOWN</p>
+        <div className="w-10 h-16 border-2 border-white rounded-full flex justify-center items-center">
+          <Mouse size={20} className="text-white" />
+        </div>
+      </motion.div>
     </div>
   );
 };
