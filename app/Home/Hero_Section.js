@@ -55,7 +55,7 @@ const Hero_Section = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full mt-[-10] md:mt-0">
+      <div className="absolute inset-0 w-full h-full mt-[-20] md:mt-0">
         <Image
           src={image1}
           alt="Background Image"
