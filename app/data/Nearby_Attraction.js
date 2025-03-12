@@ -27,7 +27,7 @@ export const Nearby_Attraction_Data = [
     id: 4,
     Name: "Darjeeling",
     Description:
-      "A world-famous hill station known for tea plantations, stunning Himalayan views, cultural richness, and Darjeeling Himalayan Railway.",
+      "A world-famous hill station known for tea plantations, Himalayan views, cultural richness, and Darjeeling Himalayan Railway.",
     Image:
       "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FDarjeeling.jpg?alt=media&token=da1e5ca0-5bc3-488b-b16d-06a647cf4c62",
   },
@@ -35,12 +35,28 @@ export const Nearby_Attraction_Data = [
     id: 5,
     Name: "Sikkim",
     Description:
-      "A northeastern paradise with breathtaking monasteries, snow-capped mountains, diverse wildlife, vibrant culture, and spectacular natural beauty.",
+      "A northeastern paradise with  monasteries, snow-capped mountains, diverse wildlife,  and spectacular natural beauty.",
     Image:
       "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FSikkim.jpg?alt=media&token=3e8e3698-aa4e-40db-8a46-b1fe751d0865",
   },
   {
     id: 6,
+    Name: "Raimatang",
+    Description:
+      "A hidden gem in Dooars with lush forests, tranquil rivers, scenic charm, and peaceful retreats amidst nature's beauty.",
+    Image:
+      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FRaimatang.jpg?alt=media&token=782fb487-5e20-4fb5-aace-6ff9b4f10199",
+  },
+  {
+    id: 7,
+    Name: "Sikkim",
+    Description:
+      "A northeastern paradise with  monasteries, snow-capped mountains, diverse wildlife,  and spectacular natural beauty.",
+    Image:
+      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FSikkim.jpg?alt=media&token=3e8e3698-aa4e-40db-8a46-b1fe751d0865",
+  },
+  {
+    id: 8,
     Name: "Raimatang",
     Description:
       "A hidden gem in Dooars with lush forests, tranquil rivers, scenic charm, and peaceful retreats amidst nature's beauty.",

@@ -19,13 +19,14 @@ const Image_Slider = ({ images = [], height, width, timer, animation }) => {
   }, []);
 
   return (
-    <div className="w-dvh h-dvh ">
+    <div className="flex justify-center items-center h-dvh ">
       <Image
         src={images[currentImage]}
         alt="Sliding Image"
         width={500}
         height={500}
-        className="w-full h-full object-cover"
+        quality={100}
+        className="w-auto h-full object-fill "
       />
     </div>
   );

@@ -8,7 +8,7 @@ const LeagueGothic = League_Gothic({
 
 const Card = ({ img, title, desc, link }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg  w-72 md:w-72 lg:w-96 mt-10">
+    <div className="bg-white rounded-xl shadow-lg  w-72 md:w-72 lg:w-80 mt-10">
       {/* Image */}
       <img
         src={img}
@@ -19,7 +19,7 @@ const Card = ({ img, title, desc, link }) => {
       {/* Content */}
       <div className="p-6 text-center">
         <div
-          className={`${LeagueGothic.className} text-[#FF5A00] font-bold text-xl md:text-4xl mb-3 uppercase`}>
+          className={`${LeagueGothic.className} text-[#FF5A00] font-bold text-3xl md:text-4xl mb-3 uppercase`}>
           {title}
         </div>
         <p className="text-gray-600 text-sm mb-4 max-w-[50ch]">{desc}</p>
