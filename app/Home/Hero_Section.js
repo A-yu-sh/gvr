@@ -53,9 +53,9 @@ const Hero_Section = () => {
   }, [text, isDeleting, wordIndex]);
 
   return (
-    <div className="relative h-[100vh] md:h-svh w-full overflow-hidden">
-      <div className="relative w-auto h-svh">
-        <div className="relative w-auto h-svh flex justify-center">
+    <div className="relative h-[100vh] md:h-screen w-full overflow-hidden">
+      <div className="relative w-auto h-screen">
+        <div className="relative w-auto h-screen flex justify-center">
           <Image_Slider images={images} timer={3000} />
           <div className="absolute inset-0 max-w-[100%] w-[100%] xl:w-[88%] bg-black bg-opacity-50 left-1/2 transform -translate-x-1/2"></div>
         </div>
