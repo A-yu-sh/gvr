@@ -4,17 +4,38 @@ import image1 from "../assets/Group 6.jpg";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { motion } from "framer-motion";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Mouse } from "lucide-react";
 
 const PoppinsFont = Poppins({
-  weight: "700", // Bold weight for stronger appearance
+  weight: "700",
   subsets: ["latin"],
 });
-const synonyms = ["Nature", "Serenity", "Peace", "Tranquility", "Calmness"];
 
 const Hero_Section = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
+      {/* Social & Book Now Buttons (Centered Left Side) */}
+      <div className="absolute top-52 lg:top-1/2 -left-2 transform -translate-y-1/2 flex flex-col space-y-6 text-white z-20 items-center">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#FF5A00] transition-all text-xl">
+          <FaFacebookF />
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#FF5A00] transition-all text-xl">
+          <FaInstagram />
+        </a>
+        <button className="hover:text-[#FF5A00] transition-all py-6 -rotate-90 text-sm font-light">
+          Book Now
+        </button>
+      </div>
+
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -45,29 +66,27 @@ const Hero_Section = () => {
         <p className="text-lg md:text-2xl mt-3 md:mt-5 max-w-xl">
           Discover a haven of serenity and luxury at our resort.
         </p>
-        <motion.button
-          className="border border-white text-white px-6 py-2 hover:px-7 mt-5 hover:py-3 text-sm md:px-8 md:py-3 md:text-base rounded-full hover:bg-white/30 hover:backdrop-blur-none hover:bg-opacity-30 font-semibold transition-colors drop-shadow-md"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 1 }}>
-          Book Now
-        </motion.button>
+        <p className="text-lg md:text-2xl mt-3 md:mt-5 max-w-xl">
+          Trusted By 1500+ Customers
+        </p>
       </motion.div>
 
       {/* Scroll Down Indicator with Fade Animation */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white cursor-pointer"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        onClick={() =>
-          window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-        }>
-        <p className="text-sm mb-2 tracking-widest">SCROLL DOWN</p>
-        <div className="w-10 h-16 border-2 border-white rounded-full flex justify-center items-center">
-          <Mouse size={20} className="text-white" />
-        </div>
-      </motion.div>
+      <div className="absolute bottom-10 w-full flex justify-center">
+        <motion.div
+          className="flex flex-col items-center text-white cursor-pointer"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: [10, 0, 10] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          onClick={() =>
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
+          }>
+          <p className="text-sm mb-2 tracking-widest">SCROLL DOWN</p>
+          <div className="w-10 h-16 border-2 border-white rounded-full flex justify-center items-center">
+            <Mouse size={20} className="text-white animate-bounce" />
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };
