@@ -26,7 +26,7 @@ const Image_Slider = ({ images = [], height, width, timer, animation }) => {
         width={500}
         height={500}
         quality={100}
-        className="w-auto h-full object-fill "
+        className="w-auto h-dvh object-fill "
       />
     </div>
   );
