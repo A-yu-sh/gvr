@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <nav className="relative z-50">
-      <div className="fixed bg-white shadow-md h-24 top-0 left-0 right-0 grid grid-cols-2 md:grid-cols-[20%_60%_20%] p-5">
+      <div className="fixed bg-white shadow-md -mt-2 h-24 top-0 left-0 right-0 grid grid-cols-2 md:grid-cols-[20%_60%_20%] p-5">
         {/* Logo */}
         <div className="flex justify-start md:justify-around items-center mt-[-10px]">
           <Link href="/" className="flex justify-start md:justify-center">
@@ -70,7 +70,7 @@ const Header = () => {
             <Link
               key={e.name}
               href={e.link}
-              className="hover:text-[#FF5A00]"
+              className={`${pacifico.className}hover:text-[#FF5A00]`}
               onClick={() => setOpen(false)}>
               {e.name}
             </Link>
