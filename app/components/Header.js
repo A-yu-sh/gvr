@@ -50,7 +50,7 @@ const Header = () => {
         </div>
 
         {/* Contact for Desktop */}
-        <div className="hidden md:flex md:justify-evenly mt-[-12]">
+        <div className="hidden md:flex md:justify-evenly mt-[-14]">
           <a
             className="bg-[#FF5A00] text-white px-20 py-3 my-5 mr-5 rounded-lg font-semibold hover:bg-[#FF4500] transition-all duration-300"
             href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=I%20want%20to%20book%20a%20room`}
