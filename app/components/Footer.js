@@ -43,8 +43,12 @@ export default function Footer() {
           <h3 className="text-xl font-bold">Get in touch</h3>
           <div className="mt-4 space-y-2 text-sm">
             <p className="flex justify-center md:justify-start md:items-center gap-2">
-              <Phone size={16} /> +91 81013 68313
+              <Phone size={16} />
+              <a href="tel:+918101368313" className="hover:underline">
+                +91 81013 68313
+              </a>
             </p>
+
             <p className="flex justify-center md:justify-start md:items-center gap-2">
               <Mail size={16} />
               <a
@@ -55,7 +59,14 @@ export default function Footer() {
             </p>
 
             <p className="flex justify-center md:justify-start md:items-center gap-2">
-              <MapPin size={16} /> NH-31, Mangalbari, Chalsa, India, West Bengal
+              <MapPin size={16} />
+              <a
+                href="https://www.google.com/maps/place/Green+Vista+Resort+%26+Restro+Cloudway/@26.8576276,87.584788,9z/data=!4m13!1m2!2m1!1sNH-31,Mangalbari,Chalsa,India,West+Bengal!3m9!1s0x39e3f5473b911db1:0x88cdfbbcb5e2e268!5m2!4m1!1i2!8m2!3d26.8576276!4d88.8042704!15sCilOSC0zMSxNYW5nYWxiYXJpLENoYWxzYSxJbmRpYSxXZXN0IEJlbmdhbForIiluaCAzMSBtYW5nYWxiYXJpIGNoYWxzYSBpbmRpYSB3ZXN0IGJlbmdhbJIBDHJlc29ydF9ob3RlbJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOU2FIQnhjbTVCUlJBQuABAPoBBAhfECc!16s%2Fg%2F11pc9m6k2n?entry=ttu&g_ep=EgoyMDI1MDMxMS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline">
+                NH-31, Mangalbari, Chalsa, India, West Bengal
+              </a>
             </p>
           </div>
         </div>
