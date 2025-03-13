@@ -108,6 +108,7 @@ const Header = () => {
               className="h-10 w-auto object-contain transition-opacity duration-300"
               height={50}
               width={100}
+              priority
             />
           </Link>
           <div onClick={() => setOpen(!open)} className="cursor-pointer">
