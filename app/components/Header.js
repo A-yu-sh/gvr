@@ -17,21 +17,24 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const controls = useAnimation();
+  const headerControls = useAnimation();
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight * 0.8) {
         setScrolled(true);
         controls.start({ opacity: 1, y: 0 });
+        headerControls.start({ opacity: 1, y: 0 });
       } else {
         setScrolled(false);
         controls.start({ opacity: 0, y: -20 });
+        headerControls.start({ opacity: 0, y: -20 });
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [controls]);
+  }, [controls, headerControls]);
 
   let Links = [
     { name: "About Us", link: "#" },
