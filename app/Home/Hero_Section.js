@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { Mouse } from "lucide-react";
+import { MoveDown } from "lucide-react";
 
 const PoppinsFont = Poppins({
   weight: "700",
@@ -84,9 +84,8 @@ const Hero_Section = () => {
             window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
           }>
           <p className="text-sm mb-2 tracking-widest">SCROLL DOWN</p>
-          <div className="w-10 h-16 border-2 border-white rounded-full flex justify-center items-center">
-            <Mouse size={20} className="text-white animate-bounce" />
-          </div>
+
+          <MoveDown size={20} className="text-white animate-bounce mt-2" />
         </motion.div>
       </div>
     </div>

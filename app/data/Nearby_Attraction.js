@@ -41,19 +41,19 @@ export const Nearby_Attraction_Data = [
   },
   {
     id: 6,
-    Name: "Raimatang",
+    Name: "Jaldapara",
     Description:
-      "A hidden gem in Dooars with lush forests, tranquil rivers, scenic charm, and peaceful retreats amidst nature's beauty.",
+      "Jaldapara, in West Bengal, at Himalayan foothills, protects diverse flora and fauna, including the largest rhino population.",
     Image:
-      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FRaimatang.jpg?alt=media&token=782fb487-5e20-4fb5-aace-6ff9b4f10199",
+      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FJaldapara.jpg?alt=media&token=4d35cee5-6ec3-4df6-a6ef-26e15abfad43",
   },
   {
     id: 7,
-    Name: "Sikkim",
+    Name: "Phuentsholing",
     Description:
-      "A northeastern paradise with  monasteries, snow-capped mountains, diverse wildlife,  and spectacular natural beauty.",
+      "Phuentsholing, Bhutan's border town, thrives on border trade with India, and was the former Bank of Bhutan headquarters.",
     Image:
-      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FSikkim.jpg?alt=media&token=3e8e3698-aa4e-40db-8a46-b1fe751d0865",
+      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FRaimatang.jpg?alt=media&token=782fb487-5e20-4fb5-aace-6ff9b4f10199",
   },
   {
     id: 8,
@@ -61,6 +61,6 @@ export const Nearby_Attraction_Data = [
     Description:
       "A hidden gem in Dooars with lush forests, tranquil rivers, scenic charm, and peaceful retreats amidst nature's beauty.",
     Image:
-      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2FRaimatang.jpg?alt=media&token=782fb487-5e20-4fb5-aace-6ff9b4f10199",
+      "https://firebasestorage.googleapis.com/v0/b/coffee-shop-b6e1a.appspot.com/o/Green_Vista_Resort%2Fraimatang.jpg?alt=media&token=e0d22d96-7490-4fab-a2cc-7fc669f42595",
   },
 ];
