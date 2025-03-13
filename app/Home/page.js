@@ -12,7 +12,7 @@ import Hero_Section from "./Hero_Section";
 
 const page = () => {
   return (
-    <div>
+    <div className="select-none">
       <Container>
         <Hero_Section />
 
