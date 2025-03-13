@@ -89,7 +89,7 @@ const Header = () => {
             />
           </Link>
           <div onClick={() => setOpen(!open)} className="cursor-pointer">
-            <RxHamburgerMenu className="h-7 w-8 text-white" />
+            <RxHamburgerMenu className="h-7 w-8 text-[#FEF1E0]" />
           </div>
         </div>
       )}
