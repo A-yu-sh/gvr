@@ -138,7 +138,11 @@ const Header = () => {
         ))}
         <a
           className="bg-[#FF5A00] text-white px-10 py-3 rounded-lg font-semibold hover:bg-[#FF4500] transition-all duration-300"
-          href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=I%20want%20to%20book%20a%20room`}
+          href={
+            navigator.userAgent.match(/Android/i)
+              ? `intent://send?phone=${process.env.NEXT_PUBLIC_PHONE_NUMBER}&text=I%20want%20to%20book%20a%20room#Intent;scheme=whatsapp;package=com.whatsapp;end;`
+              : `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=I%20want%20to%20book%20a%20room`
+          }
           target="_blank"
           rel="noopener noreferrer">
           Contact Us
