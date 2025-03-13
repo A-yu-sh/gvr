@@ -74,7 +74,7 @@ const Hero_Section = () => {
       </motion.div>
 
       {/* Scroll Down Indicator with Fade Animation */}
-      <div className="absolute bottom-10 w-full flex justify-center">
+      <div className="absolute bottom-20 w-full flex justify-center">
         <motion.div
           className="flex flex-col items-center text-white cursor-pointer"
           initial={{ opacity: 0, y: 10 }}
