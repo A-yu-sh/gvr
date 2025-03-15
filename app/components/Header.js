@@ -41,7 +41,7 @@ const Header = () => {
     { name: "About Us", link: "#" },
     { name: "Gallery", link: "#" },
     { name: "Packages", link: "#" },
-    { name: "Accomodation", link: "#" },
+    { name: "Accomodation", link: "/accomodations" },
     { name: "Event", link: "#" },
   ];
 
