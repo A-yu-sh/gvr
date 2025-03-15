@@ -32,9 +32,28 @@ export default function Footer() {
             unmatched experiences in breathtaking natural surroundings.
           </p>
           <div className="flex justify-center md:justify-start gap-4 mt-4">
-            <FaFacebookF className="text-xl cursor-pointer" />
-            <FaInstagram className="text-xl cursor-pointer" />
-            <FaWhatsapp className="text-xl cursor-pointer" />
+            <a
+              href="https://www.facebook.com/greenvistadooars/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <FaFacebookF className="text-xl cursor-pointer" />
+            </a>
+            <a
+              href="https://www.instagram.com/greenvistaresort/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <FaInstagram className="text-xl cursor-pointer" />
+            </a>
+            <a
+              href={
+                navigator.userAgent.match(/Android/i)
+                  ? `intent://send?phone=${process.env.NEXT_PUBLIC_PHONE_NUMBER}&text=I%20want%20to%20book%20a%20room#Intent;scheme=whatsapp;package=com.whatsapp;end;`
+                  : `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=I%20want%20to%20book%20a%20room`
+              }
+              target="_blank"
+              rel="noopener noreferrer">
+              <FaWhatsapp className="text-xl cursor-pointer" />
+            </a>
           </div>
         </div>
 
