@@ -1,55 +1,52 @@
 "use client";
-import { memo, useEffect, useLayoutEffect, useMemo, useState } from "react"
+import { memo, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import {
   AnimatePresence,
   motion,
   useAnimation,
   useMotionValue,
   useTransform,
-} from "framer-motion"
+} from "framer-motion";
 
 export const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-const IS_SERVER = typeof window === "undefined"
+const IS_SERVER = typeof window === "undefined";
 
 export function useMediaQuery(
   query,
-  {
-    defaultValue = false,
-    initializeWithValue = true
-  } = {}
+  { defaultValue = false, initializeWithValue = true } = {}
 ) {
-  const getMatches = query => {
+  const getMatches = (query) => {
     if (IS_SERVER) {
-      return defaultValue
+      return defaultValue;
     }
     return window.matchMedia(query).matches;
-  }
+  };
 
   const [matches, setMatches] = useState(() => {
     if (initializeWithValue) {
       return getMatches(query);
     }
-    return defaultValue
-  })
+    return defaultValue;
+  });
 
   const handleChange = () => {
-    setMatches(getMatches(query))
-  }
+    setMatches(getMatches(query));
+  };
 
   useIsomorphicLayoutEffect(() => {
-    const matchMedia = window.matchMedia(query)
-    handleChange()
+    const matchMedia = window.matchMedia(query);
+    handleChange();
 
-    matchMedia.addEventListener("change", handleChange)
+    matchMedia.addEventListener("change", handleChange);
 
     return () => {
-      matchMedia.removeEventListener("change", handleChange)
+      matchMedia.removeEventListener("change", handleChange);
     };
-  }, [query])
+  }, [query]);
 
-  return matches
+  return matches;
 }
 
 const keywords = [
@@ -67,25 +64,23 @@ const keywords = [
   "lights",
   "downtown",
   "bridge",
-]
+];
 
-const duration = 0.15
-const transition = { duration, ease: [0.32, 0.72, 0, 1], filter: "blur(4px)" }
-const transitionOverlay = { duration: 0.5, ease: [0.32, 0.72, 0, 1] }
+const duration = 0.15;
+const transition = { duration, ease: [0.32, 0.72, 0, 1], filter: "blur(4px)" };
+const transitionOverlay = { duration: 0.5, ease: [0.32, 0.72, 0, 1] };
 
-const Carousel = memo(({
-  handleClick,
-  controls,
-  cards,
-  isCarouselActive
-}) => {
-  const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
-  const cylinderWidth = isScreenSizeSm ? 1100 : 1800
-  const faceCount = cards.length
-  const faceWidth = cylinderWidth / faceCount
-  const radius = cylinderWidth / (2 * Math.PI)
-  const rotation = useMotionValue(0)
-  const transform = useTransform(rotation, (value) => `rotate3d(0, 1, 0, ${value}deg)`)
+const Carousel = memo(({ handleClick, controls, cards, isCarouselActive }) => {
+  const isScreenSizeSm = useMediaQuery("(max-width: 640px)");
+  const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
+  const faceCount = cards.length;
+  const faceWidth = cylinderWidth / faceCount;
+  const radius = cylinderWidth / (2 * Math.PI);
+  const rotation = useMotionValue(0);
+  const transform = useTransform(
+    rotation,
+    (value) => `rotate3d(0, 1, 0, ${value}deg)`
+  );
 
   return (
     <div
@@ -140,39 +135,40 @@ const Carousel = memo(({
               initial={{ filter: "blur(4px)" }}
               layout="position"
               animate={{ filter: "blur(0px)" }}
-              transition={transition} />
+              transition={transition}
+            />
           </motion.div>
         ))}
       </motion.div>
     </div>
   );
-})
+});
 
-const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`
-const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`
+const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
+const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 function ThreeDPhotoCarousel() {
-  const [activeImg, setActiveImg] = useState(null)
-  const [isCarouselActive, setIsCarouselActive] = useState(true)
-  const controls = useAnimation()
+  const [activeImg, setActiveImg] = useState(null);
+  const [isCarouselActive, setIsCarouselActive] = useState(true);
+  const controls = useAnimation();
   const cards = useMemo(
     () => keywords.map((keyword) => `https://picsum.photos/200/300?${keyword}`),
     []
-  )
+  );
 
   useEffect(() => {
-    console.log("Cards loaded:", cards)
-  }, [cards])
+    console.log("Cards loaded:", cards);
+  }, [cards]);
 
   const handleClick = (imgUrl) => {
-    setActiveImg(imgUrl)
-    setIsCarouselActive(false)
-    controls.stop()
-  }
+    setActiveImg(imgUrl);
+    setIsCarouselActive(false);
+    controls.stop();
+  };
 
   const handleClose = () => {
-    setActiveImg(null)
-    setIsCarouselActive(true)
-  }
+    setActiveImg(null);
+    setIsCarouselActive(true);
+  };
 
   return (
     <motion.div layout className="relative">
@@ -204,7 +200,8 @@ function ThreeDPhotoCarousel() {
               }}
               style={{
                 willChange: "transform",
-              }} />
+              }}
+            />
           </motion.div>
         )}
       </AnimatePresence>
@@ -213,7 +210,8 @@ function ThreeDPhotoCarousel() {
           handleClick={handleClick}
           controls={controls}
           cards={cards}
-          isCarouselActive={isCarouselActive} />
+          isCarouselActive={isCarouselActive}
+        />
       </div>
     </motion.div>
   );

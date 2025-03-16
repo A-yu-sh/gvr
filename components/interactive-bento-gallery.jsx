@@ -182,11 +182,11 @@ const GalleryModal = ({
           </div>
         </div>
         <motion.button
-          className="absolute top-2 sm:top-2.5 md:top-3 right-2 sm:right-2.5 md:right-3 p-2 rounded-full bg-gray-200/80 text-gray-700 hover:bg-gray-300/80 text-xs sm:text-sm backdrop-blur-sm"
+          className="absolute mt-32 top-2 sm:top-2.5 md:top-3 right-2 sm:right-2.5 md:right-3 p-2 rounded-full bg-[#FF5A00] text-white hover:bg-gray-300/80 text-xs sm:text-sm backdrop-blur-sm"
           onClick={onClose}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}>
-          <X className="w-3 h-3" />
+          <X className="w-3 h-3 " />
         </motion.button>
       </motion.div>
       <motion.div
@@ -273,22 +273,6 @@ const InteractiveBentoGallery = ({ mediaItems, title, description }) => {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-8 text-center">
-        <motion.h1
-          className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-white"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}>
-          {title}
-        </motion.h1>
-        <motion.p
-          className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-400"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}>
-          {description}
-        </motion.p>
-      </div>
       <AnimatePresence mode="wait">
         {selectedItem ? (
           <GalleryModal
