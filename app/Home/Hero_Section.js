@@ -15,7 +15,7 @@ const PoppinsFont = Poppins({
 const Hero_Section = () => {
   return (
     <div
-      className="relative w-full h-screen overflow-hidden "
+      className="relative w-full h-screen  "
       onContextMenu={(e) => e.preventDefault()}>
       {/* Social & Book Now Buttons (Centered Left Side) */}
       <div className="absolute top-52 lg:top-1/2 -left-2 transform -translate-y-1/2 flex flex-col space-y-6 text-white z-20 items-center">
