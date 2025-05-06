@@ -8,6 +8,7 @@ import Image from "next/image";
 import Logo from "../assets/New_Logo.jpg";
 import white_logo from "../assets/White_Logo_2.png";
 import { motion, useAnimation } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const pacifico = Pacifico({
   weight: "400",
@@ -19,6 +20,8 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const controls = useAnimation();
   const headerControls = useAnimation();
+  const pathname = usePathname();
+  const isLandingPage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,14 +31,26 @@ const Header = () => {
         headerControls.start({ opacity: 1, y: 0 });
       } else {
         setScrolled(false);
-        controls.start({ opacity: 0, y: -20 });
-        headerControls.start({ opacity: 0, y: -20 });
+        if (isLandingPage) {
+          controls.start({ opacity: 0, y: -20 });
+          headerControls.start({ opacity: 0, y: -20 });
+        } else {
+          controls.start({ opacity: 1, y: 0 });
+          headerControls.start({ opacity: 1, y: 0 });
+        }
       }
     };
 
+    // Initial header state based on page
+    if (!isLandingPage) {
+      setScrolled(true);
+      controls.start({ opacity: 1, y: 0 });
+      headerControls.start({ opacity: 1, y: 0 });
+    }
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [controls, headerControls]);
+  }, [controls, headerControls, isLandingPage]);
 
   let Links = [
     { name: "About Us", link: "#" },
@@ -74,14 +89,14 @@ const Header = () => {
         </a>
       </div>
 
-      {/* MOBILE HEADER - BEFORE SCROLL (Blurred Background) */}
-      {!scrolled && (
+      {/* MOBILE HEADER - TRANSPARENT (Only for landing page before scroll) */}
+      {!scrolled && isLandingPage && (
         <div
           className="fixed top-0 left-0 right-0 z-40 p-5 flex justify-between items-center lg:hidden 
           bg-black bg-opacity-30 backdrop-blur-sm transition-all duration-300">
           <Link href="/" className="flex items-center">
             <Image
-              src={white_logo} // White logo initially
+              src={white_logo} // White logo on transparent header
               alt="white logo"
               className="h-12 w-auto object-contain transition-opacity duration-300"
               height={60}
@@ -94,16 +109,19 @@ const Header = () => {
         </div>
       )}
 
-      {/* MOBILE HEADER - AFTER SCROLL (White BG) */}
-      {scrolled && (
+      {/* MOBILE HEADER - SOLID BACKGROUND (For all other pages and landing page after scroll) */}
+      {(scrolled || !isLandingPage) && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={controls}
+          initial={{
+            opacity: isLandingPage ? 0 : 1,
+            y: isLandingPage ? -20 : 0,
+          }}
+          animate={isLandingPage ? controls : { opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="fixed top-0 left-0 right-0 z-30 p-5 bg-white shadow-md flex justify-between items-center lg:hidden">
           <Link href="/" className="flex items-center">
             <Image
-              src={Logo} // Switch to normal logo
+              src={Logo} // Normal logo for solid header
               alt="logo"
               className="h-10 w-auto object-contain transition-opacity duration-300"
               height={50}
@@ -117,7 +135,7 @@ const Header = () => {
         </motion.div>
       )}
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* MOBILE MENU OVERLAY - No changes needed */}
       <motion.div
         initial={{ x: "-100%", opacity: 0 }}
         animate={{ x: open ? "0%" : "-100%", opacity: open ? 1 : 0 }}
