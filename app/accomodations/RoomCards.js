@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import roomData from "../../roomData.json";
+import Link from "next/link";
 
-export default function HotelRoomCard({ roomId = 1 }) {
+export default function HotelRoomCard({ roomId }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const room = roomData.rooms.find((r) => r.id === roomId) || roomData.rooms[0];
@@ -34,7 +35,7 @@ export default function HotelRoomCard({ roomId = 1 }) {
             {room.smallAmenities.map((amenity, index) => (
               <span
                 key={index}
-                className="block inline-flex items-center text-xs sm:text-sm">
+                className=" inline-flex items-center text-xs sm:text-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-3 w-3 sm:h-4 sm:w-4 mr-1 text-green-500"
@@ -65,13 +66,15 @@ export default function HotelRoomCard({ roomId = 1 }) {
         </div>
 
         <div className="mt-4 flex flex-col sm:flex-row gap-2">
-          <button
+          {" "}
+          <Link
+            href="/accomodations/[id]"
+            as={`/accomodations/${roomId}`}
             className={`w-full sm:w-auto px-4 py-1.5 text-sm rounded text-white font-medium ${
               isHovered ? "bg-orange-600" : "bg-orange-500"
             } transition-colors duration-300`}>
             Details
-          </button>
-
+          </Link>
           <button
             className={`w-full sm:w-auto px-4 py-1.5 text-sm  font-medium ${
               isHovered ? "text-orange-600 " : "text-orange-500"

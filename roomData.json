@@ -6,9 +6,43 @@
       "size": "270 sq.ft (25 sq.mt)",
       "view": "Swimming Pool View",
       "bedType": "King Bed",
+      "description": "The Executive Four Bedroom is the perfect accommodation type for guests who need extra comfort and additional beds. The room includes free Wi-Fi and TV. It will feel like you are in paradise. The bath hosts a western closet & shower. A large dressing table with a mirror, a chair & LED TV make the rest of the arrangements. Our Executive Four Bedrooms also boast magnificent sea-facing views, ensuring a truly remarkable experience during your stay.",
       "smallAmenities": ["2 twin bed", "Private Balcony"],
       "mainAmenities": ["Free Wi-Fi", "Room Service"],
-      "image": "/api/placeholder/400/320"
+      "roomAmenities": [
+        "Air Conditioning",
+        "Flat-Screen TV",
+        "Mini Fridge",
+        "Tea/Coffee Maker",
+        "Work Desk",
+        "Wardrobe",
+        "In-room Safe",
+        "Sitting Area",
+        "Intercom",
+        "Blackout Curtains",
+        "Soundproof Windows",
+        "Complimentary Bottled Water"
+      ],
+      "bathroomAmenities": [
+        "Hot/Cold Water",
+        "Shower",
+        "Hair Dryer",
+        "Bathrobe",
+        "Slippers"
+      ],
+      "essentialAmenities": [
+        "Towels",
+        "Toiletries",
+        "Toilet Paper",
+        "Dustbin",
+        "Mirror"
+      ],
+      "image": "https://source.unsplash.com/800x500/?hotel-room",
+      "thumbnails": [
+        "https://source.unsplash.com/400x300/?hotel-room",
+        "https://source.unsplash.com/400x300/?bedroom",
+        "https://source.unsplash.com/400x300/?hotel-suite"
+      ]
     },
     {
       "id": 2,
@@ -16,9 +50,43 @@
       "size": "330 sq.ft (30 sq.mt)",
       "view": "Garden View",
       "bedType": "Queen Bed",
+      "description": "The Deluxe Suite offers a serene escape with plush bedding, modern amenities, and a luxurious Jacuzzi. Perfect for couples seeking a romantic getaway.",
       "smallAmenities": ["Work Desk", "Rain Shower"],
       "mainAmenities": ["Mini Bar", "Smart TV"],
-      "image": "/api/placeholder/400/320"
+      "roomAmenities": [
+        "Air Conditioning",
+        "Smart TV",
+        "Mini Bar",
+        "Reading Lamps",
+        "Wardrobe",
+        "Intercom",
+        "Tea Maker",
+        "Balcony",
+        "Blackout Curtains",
+        "Slippers",
+        "Ironing Board",
+        "Safe Deposit Box"
+      ],
+      "bathroomAmenities": [
+        "Hot/Cold Water",
+        "Rain Shower",
+        "Toiletries",
+        "Hair Dryer",
+        "Towel Set"
+      ],
+      "essentialAmenities": [
+        "Toilet Paper",
+        "Towels",
+        "Trash Can",
+        "Mirror",
+        "Soap Dispenser"
+      ],
+      "image": "https://source.unsplash.com/800x500/?deluxe-hotel-room",
+      "thumbnails": [
+        "https://source.unsplash.com/400x300/?deluxe-room",
+        "https://source.unsplash.com/400x300/?luxury-suite",
+        "https://source.unsplash.com/400x300/?hotel-bedroom"
+      ]
     },
     {
       "id": 3,
@@ -26,9 +94,43 @@
       "size": "400 sq.ft (37 sq.mt)",
       "view": "City View",
       "bedType": "2 Double Beds",
+      "description": "Our Family Room is designed to comfortably host up to three guests, offering a cozy environment perfect for a small family getaway. With ample space and modern amenities, it’s the ideal choice for those looking for a blend of comfort and functionality.",
       "smallAmenities": ["Sofa Bed", "Kitchenette"],
       "mainAmenities": ["Kids Play Area", "Family Amenities"],
-      "image": "/api/placeholder/400/320"
+      "roomAmenities": [
+        "Sofa Set",
+        "Dining Table",
+        "Microwave",
+        "Electric Kettle",
+        "Wardrobe",
+        "Refrigerator",
+        "Board Games",
+        "Wi-Fi",
+        "Flat TV",
+        "AC",
+        "Night Lamps",
+        "Drawer Chest"
+      ],
+      "bathroomAmenities": [
+        "Bathtub",
+        "Handheld Shower",
+        "Kids Toilet Seat",
+        "Hair Dryer",
+        "Bath Towels"
+      ],
+      "essentialAmenities": [
+        "Toilet Paper",
+        "Sanitary Bin",
+        "Towels",
+        "Mirror",
+        "Shampoo"
+      ],
+      "image": "https://source.unsplash.com/800x500/?family-hotel-room",
+      "thumbnails": [
+        "https://source.unsplash.com/400x300/?family-room",
+        "https://source.unsplash.com/400x300/?hotel-family",
+        "https://source.unsplash.com/400x300/?kids-room"
+      ]
     },
     {
       "id": 4,
@@ -36,9 +138,43 @@
       "size": "520 sq.ft (48 sq.mt)",
       "view": "Panoramic View",
       "bedType": "King Bed",
+      "description": "Step into luxury with our Penthouse Premium Room, where sophistication, style, and indulgence converge to create an unparalleled guest experience. Our Penthouse Premium Rooms are meticulously designed with upscale amenities and refined details, ensuring a luxurious stay.",
       "smallAmenities": ["Private Terrace", "Jacuzzi"],
       "mainAmenities": ["Butler Service", "Executive Lounge Access"],
-      "image": "/api/placeholder/400/320"
+      "roomAmenities": [
+        "Private Elevator",
+        "Home Theatre",
+        "Mini Bar",
+        "Lounge Sofa",
+        "Glass Windows",
+        "Mood Lighting",
+        "Luxury Bedding",
+        "Sound System",
+        "Smart Lock",
+        "Workspace",
+        "Air Purifier",
+        "Nespresso Machine"
+      ],
+      "bathroomAmenities": [
+        "Jacuzzi Tub",
+        "Luxury Towels",
+        "Heated Floor",
+        "Rain Shower",
+        "Hair Dryer"
+      ],
+      "essentialAmenities": [
+        "Robe",
+        "Slippers",
+        "Toiletries",
+        "Toilet Paper",
+        "Fragrance Diffuser"
+      ],
+      "image": "https://source.unsplash.com/800x500/?penthouse-suite",
+      "thumbnails": [
+        "https://source.unsplash.com/400x300/?penthouse",
+        "https://source.unsplash.com/400x300/?luxury-apartment",
+        "https://source.unsplash.com/400x300/?rooftop-suite"
+      ]
     }
   ]
 }
