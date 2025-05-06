@@ -1,0 +1,44 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "name": "EXECUTIVE FOUR BED ROOMS",
+      "size": "270 sq.ft (25 sq.mt)",
+      "view": "Swimming Pool View",
+      "bedType": "King Bed",
+      "smallAmenities": ["2 twin bed", "Private Balcony"],
+      "mainAmenities": ["Free Wi-Fi", "Room Service"],
+      "image": "/api/placeholder/400/320"
+    },
+    {
+      "id": 2,
+      "name": "DELUXE SUITE",
+      "size": "330 sq.ft (30 sq.mt)",
+      "view": "Garden View",
+      "bedType": "Queen Bed",
+      "smallAmenities": ["Work Desk", "Rain Shower"],
+      "mainAmenities": ["Mini Bar", "Smart TV"],
+      "image": "/api/placeholder/400/320"
+    },
+    {
+      "id": 3,
+      "name": "FAMILY ROOM",
+      "size": "400 sq.ft (37 sq.mt)",
+      "view": "City View",
+      "bedType": "2 Double Beds",
+      "smallAmenities": ["Sofa Bed", "Kitchenette"],
+      "mainAmenities": ["Kids Play Area", "Family Amenities"],
+      "image": "/api/placeholder/400/320"
+    },
+    {
+      "id": 4,
+      "name": "PREMIUM PENTHOUSE",
+      "size": "520 sq.ft (48 sq.mt)",
+      "view": "Panoramic View",
+      "bedType": "King Bed",
+      "smallAmenities": ["Private Terrace", "Jacuzzi"],
+      "mainAmenities": ["Butler Service", "Executive Lounge Access"],
+      "image": "/api/placeholder/400/320"
+    }
+  ]
+}
