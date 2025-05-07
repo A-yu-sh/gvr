@@ -50,7 +50,7 @@ const Our_Accomodation = () => {
             </div>
             <div className="flex justify-center pb-24">
               <Link
-                href="#"
+                href="/accomodations"
                 className={`${InterFont.className} flex justify-center mt-10 bg-[#FF5A00] text-white w-1/3 py-3 rounded-md `}>
                 Learn More
               </Link>

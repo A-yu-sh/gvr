@@ -1,11 +1,12 @@
 {
   "rooms": [
     {
-      "id": 1,
+      "id": 89012,
       "name": "EXECUTIVE FOUR BED ROOMS",
       "size": "270 sq.ft (25 sq.mt)",
       "view": "Swimming Pool View",
       "bedType": "King Bed",
+      "price": 4100,
       "description": "The Executive Four Bedroom is the perfect accommodation type for guests who need extra comfort and additional beds. The room includes free Wi-Fi and TV. It will feel like you are in paradise. The bath hosts a western closet & shower. A large dressing table with a mirror, a chair & LED TV make the rest of the arrangements. Our Executive Four Bedrooms also boast magnificent sea-facing views, ensuring a truly remarkable experience during your stay.",
       "smallAmenities": ["2 twin bed", "Private Balcony"],
       "mainAmenities": ["Free Wi-Fi", "Room Service"],
@@ -21,7 +22,7 @@
         "Intercom",
         "Blackout Curtains",
         "Soundproof Windows",
-        "Complimentary Bottled Water"
+        "Bottled Water"
       ],
       "bathroomAmenities": [
         "Hot/Cold Water",
@@ -45,10 +46,11 @@
       ]
     },
     {
-      "id": 2,
+      "id": 98102,
       "name": "DELUXE SUITE",
       "size": "330 sq.ft (30 sq.mt)",
       "view": "Garden View",
+      "price": 3500,
       "bedType": "Queen Bed",
       "description": "The Deluxe Suite offers a serene escape with plush bedding, modern amenities, and a luxurious Jacuzzi. Perfect for couples seeking a romantic getaway.",
       "smallAmenities": ["Work Desk", "Rain Shower"],
@@ -89,9 +91,10 @@
       ]
     },
     {
-      "id": 3,
+      "id": 50062,
       "name": "FAMILY ROOM",
       "size": "400 sq.ft (37 sq.mt)",
+      "price": 3800,
       "view": "City View",
       "bedType": "2 Double Beds",
       "description": "Our Family Room is designed to comfortably host up to three guests, offering a cozy environment perfect for a small family getaway. With ample space and modern amenities, it’s the ideal choice for those looking for a blend of comfort and functionality.",
@@ -133,9 +136,10 @@
       ]
     },
     {
-      "id": 4,
+      "id": 37192,
       "name": "PREMIUM PENTHOUSE",
       "size": "520 sq.ft (48 sq.mt)",
+      "price": 2800,
       "view": "Panoramic View",
       "bedType": "King Bed",
       "description": "Step into luxury with our Penthouse Premium Room, where sophistication, style, and indulgence converge to create an unparalleled guest experience. Our Penthouse Premium Rooms are meticulously designed with upscale amenities and refined details, ensuring a luxurious stay.",
