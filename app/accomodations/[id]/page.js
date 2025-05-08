@@ -91,9 +91,11 @@ export default function RoomPage() {
               className="w-full sm:w-auto px-4 py-2 text-center rounded text-white bg-orange-600 font-medium hover:bg-orange-700 transition-colors duration-300">
               Book Now
             </Link>
-            <button className="w-full sm:w-auto px-4 py-2 text-center rounded font-medium text-orange-600 hover:bg-orange-50 transition-colors duration-300">
+            <Link
+              href="/accomodations"
+              className="w-full sm:w-auto px-4 py-2 text-center rounded font-medium text-orange-600 hover:bg-orange-50 transition-colors duration-300">
               Back to Overview
-            </button>
+            </Link>
           </div>
         </div>
 

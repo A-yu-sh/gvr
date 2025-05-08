@@ -6,6 +6,7 @@ import { Poppins } from "next/font/google";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { MoveDown } from "lucide-react";
+import Link from "next/link";
 
 const PoppinsFont = Poppins({
   weight: "700",
@@ -33,9 +34,11 @@ const Hero_Section = () => {
           className="hover:text-[#FF5A00] transition-all text-xl">
           <FaInstagram />
         </a>
-        <button className="hover:text-[#FF5A00] transition-all py-6 -rotate-90 text-sm font-light">
+        <Link
+          href="/accomodations"
+          className="hover:text-[#FF5A00] transition-all py-6 -rotate-90 text-sm font-light">
           Book Now
-        </button>
+        </Link>
       </div>
 
       {/* Background Image */}
@@ -69,7 +72,7 @@ const Hero_Section = () => {
           Discover a haven of serenity and luxury at our resort.
         </p>
         <p className="text-lg md:text-2xl mt-3 md:mt-5 max-w-xl">
-          Trusted By 1500+ Customers
+          Trusted By 1700+ Customers
         </p>
       </motion.div>
 

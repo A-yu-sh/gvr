@@ -1,0 +1,186 @@
+{
+  "specialServices": [
+    {
+      "id": "10026",
+      "name": "Jungle Safari",
+      "description": "Guided jeep safari including pick-up and drop-off to your resort and entry tickets. Up to 6 people allowed per jeep.",
+      "price": 4500,
+      "currency": "INR",
+      "category": "Activity",
+      "groupSize": "Up to 6 people",
+      "includes": ["Pick-up", "Drop-off to Resort", "Guide", "Tickets"],
+      "link": "/packages/10026"
+    },
+    {
+      "id": "10027",
+      "name": "7 Points Sightseeing",
+      "description": "5-6 hour sightseeing tour covering Jhabng, Bindu, Samsing, Suntalakhola, Rocky Island, LaEguras & Murti River in a small car.",
+      "price": 4000,
+      "currency": "INR",
+      "duration": "5-6 Hours",
+      "category": "Tour",
+      "vehicleType": "Small Car",
+      "pointsCovered": [
+        "Jhabng",
+        "Bindu",
+        "Samsing",
+        "Suntalakhola",
+        "Rocky Island",
+        "LaEguras",
+        "Murti River"
+      ],
+      "link": "/packages/10027"
+    },
+
+    {
+      "id": "10029",
+      "name": "Lava-Delo or Lava-Rishop Sightseeing ",
+      "description": "Sightseeing tour to either Lava-Delo or Lava-Rishop in a small car.",
+      "price": 5000,
+      "currency": "INR",
+      "category": "Tour",
+      "vehicleType": "Small Car",
+      "destinations": ["Lava-Delo", "Lava-Rishop"],
+      "link": "/packages/10029"
+    },
+
+    {
+      "id": "10031",
+      "name": "Rocky Island Trip",
+      "description": "Trip to Rocky Island in a small car.",
+      "price": 2500,
+      "currency": "INR",
+      "category": "Trip",
+      "vehicleType": "Small Car",
+      "destination": "Rocky Island",
+      "link": "/packages/10031"
+    },
+
+    {
+      "id": "10033",
+      "name": "Jhalong-Bindu Trip ",
+      "description": "Trip to Jhalong and Bindu in a small car.",
+      "price": 3000,
+      "currency": "INR",
+      "category": "Trip",
+      "vehicleType": "Small Car",
+      "destinations": ["Jhalong", "Bindu"],
+      "link": "/packages/10033"
+    },
+
+    {
+      "id": "10035",
+      "name": "NJP Pickup or Drop",
+      "description": "Pickup or drop-off service from/to New Jalpaiguri Railway Station in a small car.",
+      "price": 3000,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "New Jalpaiguri Railway Station",
+      "link": "/packages/10035"
+    },
+
+    {
+      "id": "10037",
+      "name": "Bagdogra Pickup or Drop ",
+      "description": "Pickup or drop-off service from/to Bagdogra Airport in a small car.",
+      "price": 3500,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "Bagdogra Airport",
+      "link": "/packages/10037"
+    },
+
+    {
+      "id": "10039",
+      "name": "Malbazar Pickup or Drop ",
+      "description": "Pickup or drop-off service from/to Malbazar in a small car.",
+      "price": 1200,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "Malbazar",
+      "link": "/packages/10039"
+    },
+
+    {
+      "id": "10041",
+      "name": "Maynaguri Pickup or Drop",
+      "description": "Pickup or drop-off service from/to Maynaguri in a small car.",
+      "price": 2300,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "Maynaguri",
+      "link": "/packages/10041"
+    },
+
+    {
+      "id": "10043",
+      "name": "Jalpaiguri Pickup or Drop",
+      "description": "Pickup or drop-off service from/to Jalpaiguri in a small car.",
+      "price": 2500,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "Jalpaiguri",
+      "link": "/packages/10043"
+    },
+
+    {
+      "id": "10045",
+      "name": "Darjeeling Pickup or Drop",
+      "description": "Pickup or drop-off service from/to Darjeeling in a small car.",
+      "price": 5000,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "Darjeeling",
+      "link": "/packages/10045"
+    },
+
+    {
+      "id": "10047",
+      "name": "Gangtok Pickup or Drop ",
+      "description": "Pickup or drop-off service from/to Gangtok in a small car.",
+      "price": 6000,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "Gangtok",
+      "link": "/packages/10047"
+    },
+
+    {
+      "id": "10049",
+      "name": "Kalingpong Pickup or Drop ",
+      "description": "Pickup or drop-off service from/to Kalingpong in a small car.",
+      "price": 4500,
+      "currency": "INR",
+      "category": "Transfer",
+      "vehicleType": "Small Car",
+      "location": "Kalingpong",
+      "link": "/packages/10049"
+    },
+
+    {
+      "id": "10051",
+      "name": "Tribal Dance",
+      "description": "Traditional cultural performance featuring local tribal dance routines for your event entertainment.",
+      "price": 5000,
+      "currency": "INR",
+      "duration": "Per performance",
+      "category": "Entertainment",
+      "advanceBooking": "24 hours required",
+      "image": "https://images.unsplash.com/photo-1600180758890-3dc23f9adf0d",
+      "link": "/packages/10051"
+    }
+  ],
+  "bookingPolicy": {
+    "advanceBooking": "Recommended for all services",
+    "payment": "50% advance required for confirmation",
+    "cancellation": "24 hours notice required for refund",
+    "availability": "Subject to availability on requested dates"
+  }
+}

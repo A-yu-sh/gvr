@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { League_Gothic, Inter } from "next/font/google";
+import Link from "next/link";
 const LeagueGothic = League_Gothic({
   weight: "400",
   subsets: ["latin"],
@@ -25,13 +26,14 @@ const Card = ({ img, title, desc, link }) => {
         <p className="text-gray-600 text-sm mb-4 max-w-[50ch]">{desc}</p>
 
         {/* Button */}
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-[#FF5A00] text-white px-6 py-2 rounded-md text-sm hover:bg-[#FF3300] transition">
+
+        <Link
+          href={`${link}`}
+          className="bg-[#FF5A00] text-white px-6 py-2 rounded-md text-sm
+          hover:bg-[#FF3300] transition">
+          {" "}
           Learn More
-        </a>
+        </Link>
       </div>
     </div>
   );

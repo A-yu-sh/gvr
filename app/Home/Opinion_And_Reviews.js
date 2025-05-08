@@ -36,10 +36,15 @@ const Opinion_And_Reviews = () => {
         {/* Left Side Rating Box */}
         <div className="bg-white rounded-xl shadow-lg p-10 w-full md:w-1/3 h-auto text-center flex flex-col items-center">
           <div className="text-6xl font-semibold text-gray-800">4.8</div>
+
           <div className="flex justify-center my-2">
             {[...Array(5)].map((_, i) => (
               <FaStar key={i} className="text-yellow-400 text-xl" />
             ))}
+          </div>
+          <div
+            className={`${InterFont.className} text-sm font-semibold text-gray-500`}>
+            1700+ Reviews
           </div>
 
           <Link

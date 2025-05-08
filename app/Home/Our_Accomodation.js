@@ -52,7 +52,7 @@ const Our_Accomodation = () => {
               <Link
                 href="/accomodations"
                 className={`${InterFont.className} flex justify-center mt-10 bg-[#FF5A00] text-white w-1/3 py-3 rounded-md `}>
-                Learn More
+                Discover Our Accommodations
               </Link>
             </div>
           </div>
