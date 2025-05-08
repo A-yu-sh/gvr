@@ -11,11 +11,11 @@ const LeagueGothic = League_Gothic({
 const AboutUsPage = () => {
   const propertyImages = [
     "https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dr-swimming-pool-during-daytime-qai_Clhyq0s",
+    "https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG0dby1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dr-swimming-pool-during-daytime-qai_Clhyq0s",
     "https://images.unsplash.com/photo-1529316275402-0462fcc4abd6?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    // "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    // "https://images.unsplash.com/photo-1623718649591-311775a30c43?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    // "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG0dby1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    // "https://images.unsplash.com/photo-1623718649591-311775a30c43?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG0dby1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
   const amenities = [
@@ -81,17 +81,24 @@ const AboutUsPage = () => {
           className={`${LeagueGothic.className} text-5xl md:text-6xl lg:text-7xl text-[#FF5A00] text-center flex justify-center mt-32`}>
           About Us
         </div>
-        <p className="text-xl text-center text-gray-700 mb-12  mx-auto">
-          Nestled near the Murti River in Chalsa, Dooars, Green Vista Resort and
-          Restor Cloudway offer a peaceful retreat amidst nature's beauty.
-          Surrounded by lush greenery and stunning forest views, our properties
-          provide the perfect escape with modern amenities, cozy accommodations,
-          and a range of activities like nature walks and jungle safari. Whether
-          you're looking for relaxation or adventure, both resorts offer a
-          comfortable stay with homely warmth and breathtaking surroundings.
-          Come experience the charm of Dooars with us at Green Vista Resort &
-          Restor Cloudway.
-        </p>
+        <div className="text-center text-gray-700 mb-12 text-md md:text-xl mx-auto">
+          <p className="mb-4">
+            Nestled near the Murti River in Chalsa, Dooars, Green Vista Resort
+            and Restor Cloudway offer a peaceful retreat amidst nature's beauty.
+          </p>
+          <p className="mb-4">
+            Surrounded by lush greenery and stunning forest views, our
+            properties provide the perfect escape with modern amenities, cozy
+            accommodations, and a range of activities like nature walks and
+            jungle safari.
+          </p>
+          <p>
+            Whether you're looking for relaxation or adventure, both resorts
+            offer a comfortable stay with homely warmth and breathtaking
+            surroundings. Come experience the charm of Dooars with us at Green
+            Vista Resort & Restor Cloudway.
+          </p>
+        </div>
 
         {/* Image gallery */}
         <section className="mb-16">
