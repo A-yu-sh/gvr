@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Send } from "lucide-react";
 import { League_Gothic, Inter } from "next/font/google";
 
-// Apply the fonts to the page or component using `font-leaguegothic` and `font-inter`
+// Apply the fonts to the page or component
 const leagueGothic = League_Gothic({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ const ContactForm = () => {
   });
 
   const [isFormValid, setIsFormValid] = useState(false);
-  const [statusMessage, setStatusMessage] = useState("");
+  const [status, setStatus] = useState({ message: "", type: "" });
   const [googleSheetData, setGoogleSheetData] = useState([]);
 
   const handleChange = (e) => {
@@ -40,6 +40,16 @@ const ContactForm = () => {
     );
   }, [formData]);
 
+  // Automatically clear the status message after 3 seconds
+  useEffect(() => {
+    if (status.message) {
+      const timer = setTimeout(() => {
+        setStatus({ message: "", type: "" });
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
   // Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,7 +62,7 @@ const ContactForm = () => {
       });
 
       if (res.ok) {
-        setStatusMessage("Form submitted successfully!");
+        setStatus({ message: "Form submitted successfully!", type: "success" });
         setFormData({
           firstName: "",
           lastName: "",
@@ -61,11 +71,17 @@ const ContactForm = () => {
           comment: "",
         });
       } else {
-        setStatusMessage("Failed to submit form. Please try again.");
+        setStatus({
+          message: "Failed to submit form. Please try again.",
+          type: "error",
+        });
       }
     } catch (error) {
       console.error(error);
-      setStatusMessage("An error occurred. Please try again.");
+      setStatus({
+        message: "An error occurred. Please try again.",
+        type: "error",
+      });
     }
   };
 
@@ -98,7 +114,7 @@ const ContactForm = () => {
             Get In Touch
           </p>
           <h1
-            className={`text-5xl md:text-6xl lg:text-7xl text-[#FF5A00] mb-4 ${leagueGothic.className} uppercase `}>
+            className={`text-5xl md:text-6xl lg:text-7xl text-[#FF5A00] mb-4 ${leagueGothic.className} uppercase`}>
             Leave Us Your Info
           </h1>
           <p className="text-orange-600 max-w-xl mx-auto">
@@ -166,43 +182,18 @@ const ContactForm = () => {
           </button>
         </form>
 
-        {/* Status */}
-        {statusMessage && (
-          <div className="mt-4 text-center text-green-600 font-semibold">
-            {statusMessage}
+        {/* Status Message */}
+        {status.message && (
+          <div
+            className={`mt-6 text-center py-3 px-4 rounded transition-all font-semibold ${
+              status.type === "success"
+                ? "bg-green-500 text-white"
+                : "bg-red-500 text-white"
+            }`}>
+            {status.message}
           </div>
         )}
-
-        {/* Data Table */}
-        {/* <div className="mt-8">
-          <h2 className="text-2xl font-semibold">Submitted Data</h2>
-          <table className="w-full table-auto mt-4 border-collapse">
-            <thead>
-              <tr>
-                <th className="border px-4 py-2">First Name</th>
-                <th className="border px-4 py-2">Last Name</th>
-                <th className="border px-4 py-2">Email</th>
-                <th className="border px-4 py-2">Phone</th>
-                <th className="border px-4 py-2">Comment</th>
-              </tr>
-            </thead>
-            <tbody>
-              {googleSheetData &&
-                googleSheetData.map((row, index) => (
-                  <tr key={index}>
-                    <td className="border px-4 py-2">{row[0]}</td>
-                    <td className="border px-4 py-2">{row[1]}</td>
-                    <td className="border px-4 py-2">{row[2]}</td>
-                    <td className="border px-4 py-2">{row[3]}</td>
-                    <td className="border px-4 py-2">{row[4]}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div> */}
       </div>
-
-      {/* Location Section */}
       <div className="w-full bg-white py-16">
         <h2
           className={`text-5xl md:text-6xl lg:text-7xl text-[#FF5A00] ${leagueGothic.className}  mb-10 text-center uppercase`}>
