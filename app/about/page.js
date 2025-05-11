@@ -3,6 +3,16 @@ import { Wifi, Clock, WavesLadder, Dumbbell, Coffee } from "lucide-react";
 import Image from "next/image";
 import { League_Gothic, Inter } from "next/font/google";
 
+export const metadata = {
+  title: "Green Vista Resort | About",
+  description:
+    "Discover the story, vision, and values behind Green Vista Resort — where luxury meets nature in the heart of Murti, West Bengal.",
+
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
 const LeagueGothic = League_Gothic({
   weight: "400",
   subsets: ["latin"],

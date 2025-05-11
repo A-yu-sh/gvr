@@ -4,6 +4,16 @@ import roomData from "../../roomData.json";
 import { League_Gothic, Inter } from "next/font/google";
 import Container from "../components/Container";
 
+export const metadata = {
+  title: "Green Vista Resort | Rooms",
+  description:
+    "Explore the variety of luxurious rooms at Green Vista Resort, offering comfort, serenity, and stunning views for an unforgettable stay in Murti, West Bengal.",
+
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
 const LeagueGothic = League_Gothic({
   weight: "400",
   subsets: ["latin"],

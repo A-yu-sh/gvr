@@ -3,6 +3,15 @@ import Card from "../components/Card";
 import data from "../../services.json";
 import { League_Gothic } from "next/font/google";
 
+export const metadata = {
+  title: "Green Vista Resort | Packages",
+  description:
+    "Discover exclusive packages at Green Vista Resort designed to enhance your stay in Murti, West Bengal. From romantic getaways to family retreats, our curated offers provide exceptional value and unforgettable experiences.",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
 const LeagueGothic = League_Gothic({
   weight: "400",
   subsets: ["latin"],

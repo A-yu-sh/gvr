@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Green Vista Resort",
+  title: "Green Vista Resort | Home",
   description:
     "Experience luxury and tranquility at Green Vista Resort, nestled in the heart of nature. Enjoy breathtaking views, premium amenities, and unparalleled hospitality.",
 };

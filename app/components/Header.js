@@ -55,7 +55,8 @@ const Header = () => {
   let Links = [
     { name: "About Us", link: "/about" },
     { name: "Gallery", link: "#" },
-    { name: "Packages", link: "#" },
+    { name: "Packages", link: "/packages" },
+    { name: "Services", link: "#" },
     { name: "Accomodation", link: "/accomodations" },
     { name: "Event", link: "#" },
     { name: "Contact", link: "/contact" },
