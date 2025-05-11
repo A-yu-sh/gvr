@@ -21,7 +21,7 @@ export async function GET() {
     const client = await auth.getClient();
     const sheets = google.sheets({ version: "v4", auth: client });
 
-    const spreadsheetId = "1RHNN4dL5Bl7ASLMh68-pkC1tfD3_hI6UCmewHS4ejno"; // Replace with your actual Sheet ID
+    const spreadsheetId = process.env.PUBLIC_SPREADSHEET_ID; // Use actual ID, not project name
     const range = "Sheet1!A2:E"; // Adjust based on your headers
 
     const response = await sheets.spreadsheets.values.get({

@@ -1,22 +1,20 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
 
 export async function POST(req) {
   try {
     const body = await req.json();
 
-    // Correctly load the JSON key file
-    const filePath = path.join(
-      process.cwd(),
-      "config",
-      "google-service-account.json"
-    );
-    const rawKeyFile = await fs.readFile(filePath, "utf8");
-    const credentials = JSON.parse(rawKeyFile);
+    // Get and decode the base64 service account key
+    const base64Key = process.env.GOOGLE_SERVICE_ACCOUNT_BASE64;
+    if (!base64Key) {
+      throw new Error("Service account key not found in environment variables");
+    }
 
-    // Check required fields
+    const rawKey = Buffer.from(base64Key, "base64").toString("utf8");
+    const credentials = JSON.parse(rawKey);
+
+    // Validate required fields
     if (!credentials.client_email || !credentials.private_key) {
       throw new Error("Invalid service account credentials");
     }
@@ -29,10 +27,9 @@ export async function POST(req) {
     const client = await auth.getClient();
     const sheets = google.sheets({ version: "v4", auth: client });
 
-    const spreadsheetId = "1RHNN4dL5Bl7ASLMh68-pkC1tfD3_hI6UCmewHS4ejno"; // Use actual ID, not project name
+    const spreadsheetId = process.env.PUBLIC_SPREADSHEET_ID;
     const range = "Sheet1!A2:E";
 
-    // Append the new data row
     await sheets.spreadsheets.values.append({
       spreadsheetId,
       range,
