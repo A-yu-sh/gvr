@@ -1,23 +1,22 @@
+// app/api/submitForm/route.js
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function POST(req) {
   try {
+    const body = await req.json();
+
     const base64Key = process.env.GOOGLE_SERVICE_ACCOUNT_BASE64;
     if (!base64Key) {
-      throw new Error("Service account key not found in environment variables");
+      throw new Error("Missing service account env var");
     }
 
     const rawKey = Buffer.from(base64Key, "base64").toString("utf8");
     const credentials = JSON.parse(rawKey);
 
-    if (!credentials.client_email || !credentials.private_key) {
-      throw new Error("Invalid service account credentials");
-    }
-
     const auth = new google.auth.GoogleAuth({
       credentials,
-      scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
 
     const client = await auth.getClient();
@@ -26,14 +25,26 @@ export async function GET() {
     const spreadsheetId = "1RHNN4dL5Bl7ASLMh68-pkC1tfD3_hI6UCmewHS4ejno";
     const range = "Sheet1!A2:E";
 
-    const res = await sheets.spreadsheets.values.get({
+    await sheets.spreadsheets.values.append({
       spreadsheetId,
       range,
+      valueInputOption: "RAW",
+      requestBody: {
+        values: [
+          [
+            body.firstName,
+            body.lastName,
+            body.email,
+            body.phone,
+            body.comment || "",
+          ],
+        ],
+      },
     });
 
-    return NextResponse.json({ data: res.data.values || [] });
+    return NextResponse.json({ message: "Form submitted successfully" });
   } catch (err) {
-    console.error("Error fetching sheet data:", err);
+    console.error("Error submitting form:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
