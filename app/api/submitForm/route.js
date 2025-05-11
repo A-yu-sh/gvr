@@ -1,6 +1,6 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+
 import path from "path";
 import fs from "fs";
 
@@ -39,46 +39,6 @@ async function processFormData(body) {
         ],
       },
     });
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
-
-    const pdfPath = path.resolve(
-      "public",
-      "Green_Vista_Resort_Information.pdf"
-    );
-
-    // Check if the PDF exists
-    if (!fs.existsSync(pdfPath)) {
-      throw new Error("PDF file not found at path: " + pdfPath);
-    }
-
-    const message = {
-      from: process.env.EMAIL_USERNAME,
-      to: body.email,
-      subject: `Thank you for your enquiry, ${body.firstName}`,
-      html: `
-        <p>Hi ${body.firstName},</p>
-        <p>Thank you for reaching out to Green Vista Resort! We’ve received your inquiry and appreciate your interest in our services. Our team is currently reviewing your message, and we'll get back to you as soon as possible with the information you requested.</p>
-        <p>In the meantime, feel free to explore our website or contact us if you have any further questions.</p>
-        <p>We look forward to assisting you!</p>
-        <p>Best regards,<br/>The Green Vista Resort Team</p>
-      `,
-      attachments: [
-        {
-          filename: "Green_Vista_Resort_Information.pdf",
-          path: pdfPath,
-        },
-      ],
-    };
-
-    const info = await transporter.sendMail(message);
-    console.log("Email sent: " + info.response);
   } catch (err) {
     console.error("Error processing form data:", err);
   }

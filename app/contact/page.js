@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Send } from "lucide-react";
 import { League_Gothic, Inter } from "next/font/google";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Apply the fonts to the page or component
+// Apply fonts
 const leagueGothic = League_Gothic({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,6 @@ const ContactForm = () => {
 
   const [isFormValid, setIsFormValid] = useState(false);
   const [status, setStatus] = useState({ message: "", type: "" });
-  const [googleSheetData, setGoogleSheetData] = useState([]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,7 +40,7 @@ const ContactForm = () => {
     );
   }, [formData]);
 
-  // Automatically clear the status message after 3 seconds
+  // Auto-clear status
   useEffect(() => {
     if (status.message) {
       const timer = setTimeout(() => {
@@ -50,7 +50,6 @@ const ContactForm = () => {
     }
   }, [status]);
 
-  // Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -84,23 +83,6 @@ const ContactForm = () => {
       });
     }
   };
-
-  // Fetch submitted data
-  useEffect(() => {
-    const fetchGoogleSheetData = async () => {
-      try {
-        const response = await fetch("/api/getGoogleSheetData");
-        const data = await response.json();
-        setGoogleSheetData(data);
-      } catch (error) {
-        console.error("Error fetching sheet data:", error);
-      }
-    };
-
-    fetchGoogleSheetData();
-    const interval = setInterval(fetchGoogleSheetData, 30000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className={`mt-24 ${inter.className}`}>
@@ -182,24 +164,38 @@ const ContactForm = () => {
           </button>
         </form>
 
-        {/* Status Message */}
-        {status.message && (
-          <div
-            className={`mt-6 text-center py-3 px-4 rounded transition-all font-semibold ${
-              status.type === "success"
-                ? "bg-green-500 text-white"
-                : "bg-red-500 text-white"
-            }`}>
-            {status.message}
-          </div>
-        )}
+        {/* Animated Status Message */}
+        <AnimatePresence>
+          {status.message && (
+            <motion.div
+              key="status-message"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.4 }}
+              className={`mt-6 text-center py-3 px-4 rounded font-semibold ${
+                status.type === "success"
+                  ? "bg-green-300 text-white"
+                  : "bg-red-500 text-white"
+              }`}>
+              {status.message}
+              {status.type === "success" && (
+                <p className="text-green-500 mt-2 animate-pulse">
+                  Our executive will contact you soon.
+                </p>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+
+      {/* Google Map Section */}
       <div className="w-full bg-white py-16">
         <h2
           className={`text-5xl md:text-6xl lg:text-7xl text-[#FF5A00] ${leagueGothic.className}  mb-10 text-center uppercase`}>
           Or Find Us Here
         </h2>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 rounded-none md:rounded-lg overflow-hidden shadow-lg">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden shadow-lg">
           <div className="w-full h-[500px]">
             <iframe
               title="Green Vista Resort & Restro Location"

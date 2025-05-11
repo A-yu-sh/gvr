@@ -53,11 +53,12 @@ const Header = () => {
   }, [controls, headerControls, isLandingPage]);
 
   let Links = [
-    { name: "About Us", link: "#" },
+    { name: "About Us", link: "/about" },
     { name: "Gallery", link: "#" },
     { name: "Packages", link: "#" },
     { name: "Accomodation", link: "/accomodations" },
     { name: "Event", link: "#" },
+    { name: "Contact", link: "/contact" },
   ];
 
   return (
