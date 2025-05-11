@@ -1,16 +1,21 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 import path from "path";
+import fs from "fs/promises";
+import { Resend } from "resend";
 
-// Move heavy work to this async function
+// Initialize Resend
+const resend = new Resend(process.env.PUBLIC_RESEND_API_KEY);
+
 async function processFormData(body) {
   try {
+    // Decode and parse Google service account
     const base64Key = process.env.GOOGLE_SERVICE_ACCOUNT_BASE64;
     const keyJson = JSON.parse(
       Buffer.from(base64Key, "base64").toString("utf-8")
     );
 
+    // Google Sheets setup
     const auth = new google.auth.GoogleAuth({
       credentials: keyJson,
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
@@ -22,6 +27,7 @@ async function processFormData(body) {
     const spreadsheetId = process.env.PUBLIC_SPREADSHEET_ID;
     const range = "Sheet1!A2:E";
 
+    // Append form data to Google Sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId,
       range,
@@ -39,40 +45,35 @@ async function processFormData(body) {
       },
     });
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
-
+    // Load the PDF as a buffer
     const pdfPath = path.resolve(
       "public",
       "Green_Vista_Resort_Information.pdf"
     );
+    const pdfBuffer = await fs.readFile(pdfPath);
 
-    const message = {
-      from: process.env.EMAIL_USERNAME,
+    // Send email using Resend
+    await resend.emails.send({
+      from: process.env.EMAIL_USERNAME, // must be a verified sender in Resend
       to: body.email,
-      subject: `Thank you for your enquiry, ${body.firstName}`,
+      subject: `Green Vista Resort : Thank you for your enquiry, ${body.firstName}`,
       html: `
         <p>Hi ${body.firstName},</p>
-        <p>Thank you for reaching out to Green Vista Resort! We’ve received your inquiry and appreciate your interest in our services. Our team is currently reviewing your message, and we'll get back to you as soon as possible with the information you requested.</p>
-        <p>In the meantime, feel free to explore our website or contact us if you have any further questions.</p>
+        <p>Thank you for reaching out to <strong>Green Vista Resort</strong>! We’ve received your inquiry and appreciate your interest in our services. Our team is currently reviewing your message, and we'll get back to you as soon as possible.</p>
+        <p>Attached is a PDF with detailed information about our resort offerings.</p>
         <p>We look forward to assisting you!</p>
-        <p>Best regards,<br/>The Green Vista Resort Team</p>
+        <p>Warm regards,<br/>The Green Vista Resort Team</p>
       `,
       attachments: [
         {
           filename: "Green_Vista_Resort_Information.pdf",
-          path: pdfPath,
+          content: pdfBuffer.toString("base64"),
+          type: "application/pdf",
         },
       ],
-    };
+    });
 
-    await transporter.sendMail(message);
-    console.log("Email sent");
+    console.log("Email sent via Resend");
   } catch (err) {
     console.error("Error processing form data:", err);
   }
@@ -82,10 +83,10 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
-    // Start processing but don't wait for it to finish
+    // Trigger async processing (Google Sheets + Email)
     processFormData(body);
 
-    // Respond immediately
+    // Respond immediately for better UX
     return NextResponse.json({ message: "Form submitted successfully" });
   } catch (err) {
     console.error("Error submitting form:", err);
